@@ -14,8 +14,8 @@ contract ConceroTask is AutomationCompatibleInterface{
     uint256 private s_lastUpkeepBlock;
     uint256 private s_counter;
 
-    uint256 private constant UPDATE_INTERVAL = 3;
-    address private constant FORWARDED = 0xc7d6468d3fcbe7d5e46864708fcd3ea3d6920685;
+    uint256 private constant UPDATE_INTERVAL = 2;
+    address private constant FORWARDED = 0xc7d6468d3fCbE7d5e46864708FCd3EA3d6920685;
 
     ////////////
     ///EVENTS///
@@ -31,7 +31,7 @@ contract ConceroTask is AutomationCompatibleInterface{
     }
 
     function checkUpkeep(bytes calldata) external view override returns (bool upkeepNeeded, bytes memory){
-        if(msg.sender != FORWARDED ) revert ConceroTask_NotAuthorized(msg.sender);
+        // if(msg.sender != FORWARDED ) revert ConceroTask_NotAuthorized(msg.sender);
 
         uint256 blockNumber = block.number;
         uint256 lastUpdate = s_lastUpkeepBlock;
@@ -42,7 +42,7 @@ contract ConceroTask is AutomationCompatibleInterface{
     }
 
     function performUpkeep(bytes calldata) external override{
-        if(msg.sender != FORWARDED ) revert ConceroTask_NotAuthorized(msg.sender);
+        // if(msg.sender != FORWARDED ) revert ConceroTask_NotAuthorized(msg.sender);
 
         uint256 blockNumber = block.number;
         uint256 lastUpdate = s_lastUpkeepBlock;
