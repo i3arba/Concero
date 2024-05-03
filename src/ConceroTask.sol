@@ -10,13 +10,14 @@ contract ConceroTask is AutomationCompatibleInterface{
     ///////////////
     ///VARIABLES///
     ///////////////
-    mapping(uint256 updateId => uint256 lastUpkeepBlock) private s_historic;
     uint256 private s_lastUpkeepBlock;
     uint256 private s_counter;
 
     uint256 private constant UPDATE_INTERVAL = 2;
     address private constant FORWARDED = 0xc7d6468d3fCbE7d5e46864708FCd3EA3d6920685;
 
+    mapping(uint256 updateId => uint256 lastUpkeepBlock) private s_historic;
+    
     ////////////
     ///EVENTS///
     ////////////
